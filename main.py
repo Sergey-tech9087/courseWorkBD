@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
 import telebot
+import os
 from telebot import types
 import logging 
 import requests 
 import ast
 from db import Database
 import sqlite3
+from dotenv import load_dotenv
+
+load_dotenv()
  
-bot = telebot.TeleBot("6196088116:AAEgf1DOhfBwDDrKoVX69n667BLa_oY9gEU")
+API = os.getenv('API')
+
+bot = telebot.TeleBot(API)
 db = Database('database.db')
 
 logging.basicConfig( 
