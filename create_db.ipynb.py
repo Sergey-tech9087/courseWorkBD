@@ -22,7 +22,7 @@ c.execute('''create table Price_changes(ID INTEGER NOT NULL PRIMARY KEY, ID_Prod
 c.execute('''create table Contract(ID INTEGER NOT NULL PRIMARY KEY, Name varchar(100) not null)''')
 
 # Документ
-c.execute('''create table Contract(ID INTEGER NOT NULL PRIMARY KEY, Name varchar(100) not null)''')
+c.execute('''create table Contract(ID INTEGER NOT NULL PRIMARY KEY, Id_Employee int references Employee(ID), Id_Supplier int references Supplier(ID))''')
 
 # Приход товара
 c.execute('''create table Arrival_products(ID INTEGER NOT NULL PRIMARY KEY, Date_arrival int not null, Id_Supplier int references Supplier(ID), Id_Contract int references Contract(ID))''')
