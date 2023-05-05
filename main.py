@@ -525,7 +525,7 @@ def start(message):
     elif message.text == "Получить отзывы":
         if udb.get(str(message.from_user.id)) == "admin":
             for row in collection.find():
-                bot.send_message(message.from_user.id, str(row))
+                bot.send_message(message.from_user.id, "ID - " + str(row["id"]) + "; " + row["surname"] + " " + row["name"] + "; rate - " + str(row["rate"]) + "/5, review:" + row["review"])
         else:
             not_enough_rights(message.from_user.id)
     elif message.text == "/help":
